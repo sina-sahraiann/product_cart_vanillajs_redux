@@ -2,117 +2,86 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
+  <section class="bg-info vh-100 d-flex justify-content-center align-items-center">
+    <div id="products w-100">
+      <h2 class="text-center">
+        Product list
+      </h2>
+      <ul id="product_container" class="d-flex justify-content-around col-12 p-0">
+        <!-- products go here -->
+      </ul>
+    </div>
+  </section>
 
-    <section class="bg-info vh-100 d-flex justify-content-center align-items-center">
-        <div id="products w-100">
-            <h2 class="text-center">
-                Product list
-            </h2>
-            <ul class="d-flex justify-content-around col-12 p-0">
-                <li class="card" style="width: 200px;">
-                    <div class="card-body ">
-                        <h4 class="card-title">Apple</h4>
-                        <p class="card-text">400$</p>
-                        <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                </li>
-                <li class="card" style="width: 200px;">
-                    <div class="card-body ">
-                        <h4 class="card-title">Apple</h4>
-                        <p class="card-text">400$</p>
-                        <a href="#" class="btn btn-primary">add to cart</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="bg-dark text min-vh-100 text-white text-white d-flex justify-content-center align-items-center flex-column">
-        <div class="d-flex w-100 justify-content-center">
-            <h2 class="text-center col-4">
-                Your Cart
-            </h2>
-            <h5>
-                Total amount : 
-            </h5>
-        </div>
-        <table class="table table-dark table-striped text-center mt-5 w-75">
-            <thead>
-              <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-              </tr>
-              <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-              </tr>
-            </tbody>
-          </table>
-          <button class="btn btn-success align-self-center col-4 mt-4">purchase</button>
-    </section>
-    <section class="bg-primary text min-vh-100 d-flex justify-content-center align-items-center flex-column">
-        <h2 class="text-center col-4">
-            Profile/transactions
-        </h2>
-        <table class="table table-hover table-info rounded-3 text-center mt-5 w-75">
-            <thead>
-              <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-              </tr>
-              <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-              </tr>
-            </tbody>
-          </table>
-    </section>
+  <section
+    class="bg-dark text min-vh-100 text-white text-white d-flex justify-content-center align-items-center flex-column">
+    <div class="d-flex w-100 justify-content-center">
+      <div  class="form-group">
+        <label for="usr">coupan code id:(1 or 2)</label>
+        <input id="coupanId_input" type="text" class="form-control" id="usr">
+      </div>
+      <h2 class="text-center col-4">
+        Your Cart
+      </h2>
+      <h5 id="total_amount">
+        Total amount :
+      </h5>
+    </div>
+
+    <table class="table table-dark table-striped text-center mt-5 w-75">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="cart_container">
+        <!-- cart items go here -->
+      </tbody>
+    </table>
+    <button id="purchase_btn" class="btn btn-success align-self-center col-4 mt-4">
+      purchase
+    </button>
+  </section>
+  <div class="bg-dark" style="height: 250px;"></div>
+  <section class="bg-primary text min-vh-100 d-flex justify-content-center align-items-center flex-column">
+    <h2 class="text-center col-4">
+      Profile/transactions
+    </h2>
+    <table class="table table-hover table-info rounded-3 text-center mt-5 w-75">
+      <thead>
+        <tr>
+          <th>items</th>
+          <th>coupan applied</th>
+          <th>money spend</th>
+          <th>date</th>
+        </tr>
+      </thead>
+      <tbody id="purchases_container">
+        <!-- list of purchases go here -->
+      </tbody>
+    </table>
+  </section>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"
-        integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js"
+    integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="main.js" type="module"></script>
 </body>
 
 </html>
